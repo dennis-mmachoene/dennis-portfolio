@@ -12,13 +12,15 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals"),
   {
+    ignores: [".next/", "node_modules/", "dist/"], // Ignore build folders
     rules: {
       "react/no-unescaped-entities": "off",
       "@typescript-eslint/quotes": "off",
       "quotes": [0],
-      "no-useless-escape": 0
-    }
-  }
+      "no-useless-escape": 0,
+      "@next/next/no-assign-module-variable": "off", // Disable this rule
+    },
+  },
 ];
 
 export default eslintConfig;
